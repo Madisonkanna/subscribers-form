@@ -8,6 +8,12 @@ class App extends Component {
 
   //after component mounts
 
+  onInputChange(event) {
+    console.log(event.target.value);
+    
+    
+  }
+
   componentDidMount() {
     fetch('/users')
     .then(res => res.json())
@@ -28,7 +34,7 @@ class App extends Component {
         <form>
           <label>
           Name:
-            <input type="text" name="name" />
+            <input onChange={this.onInputChange} name="name" />
           </label>
           <input type="submit" value="submit" />
         </form>
