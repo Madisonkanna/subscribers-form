@@ -21,11 +21,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Subscribers app</h1>
-            <ul>
-          {this.state.users.map( user => 
-            <li key={user.id}>{user.username}</li>
-            )}
-            </ul>
+
         </header>
 
 
@@ -36,8 +32,11 @@ class App extends Component {
           </label>
           <input type="submit" value="submit" />
         </form>
-        
 
+          {this.state.users.map( user => 
+            <li key={user.id}>{user.username}</li>
+            )}
+            
       </div>
     );
   }
