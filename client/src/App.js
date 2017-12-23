@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  // initialize state to an empty array of subscribers
+  state = { users: [] }
+
+
   render() {
     return (
       <div className="App">
@@ -10,7 +14,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Subscribers app</h1>
         </header>
-      
+
         <form>
           <label>
           Name:
