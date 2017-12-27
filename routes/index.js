@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+router.get('/confirmationpage', function(req, res) {
+    res.render('confirmationpage', { title: 'This is my confirmation page!' });
+});
+
 module.exports = router;
