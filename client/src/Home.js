@@ -58,7 +58,7 @@ class Home extends Component {
             <li key={user.id}>{user.username}</li>
             )}
 
-
+        <Link to="/list" input type="submit">List of subscribers  </Link>
       </div>
     );
   }
