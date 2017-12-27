@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 class List extends React.Component {
   state = {
-    subscribers []
+    subscribers: []
   }
 
   //code here
