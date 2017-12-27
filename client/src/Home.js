@@ -36,24 +36,12 @@ class Home extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">{Content}</h1>
+
         </header>
-
         <h1>Subscribe to our newsletter!</h1>
+        <Form/>
 
-        
-
-        <form>
-          <label>
-          Name:
-            <input onChange={this.onInputChange} name="name" />
-          </label>
-          <label>
-          Email:
-            <input onChange={this.onInputChange} email="email" />
-          </label>
-          <Link to="/confirmation" input type="submit">Subscribe  </Link>
-        </form>
-        <form onSubmit={this.handleFormChange}>Submit</form>
+      
 
 
           {this.state.users.map( user => 

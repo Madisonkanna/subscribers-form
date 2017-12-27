@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Form extends React.Component {
 
@@ -9,8 +10,21 @@ class Form extends React.Component {
     //more here
     return (
       <div>
-        <div className="app">Form</div>
+      <form>
+          <label>
+          Name:
+            <input onChange={this.onInputChange} name="name" />
+          </label>
+          <label>
+          Email:
+            <input onChange={this.onInputChange} email="email" />
+          </label>
+          <Link to="/confirmation" input type="submit">Subscribe  </Link>
+        </form>
+        <form onSubmit={this.handleFormChange}>Submit</form>
+
       </div>
+
       )
   }
 
