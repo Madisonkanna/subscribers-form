@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route } from "react-router-dom"
+
+import { Link } from "react-router-dom";
+
 
 class Home extends Component {
   // initialize state to an empty array of subscribers
@@ -32,6 +36,7 @@ class Home extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">{Content}</h1>
 
+          
         </header>
 
 
@@ -43,10 +48,13 @@ class Home extends Component {
           <input type="submit" value="submit" />
         </form>
 
+
           {this.state.users.map( user => 
             <li key={user.id}>{user.username}</li>
             )}
-            
+
+          <Link to="/search" className="open-search"> Add a book </Link>
+          
       </div>
     );
   }
