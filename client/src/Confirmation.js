@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class Search extends React.Component {
+class Confirmation extends React.Component {
   state = {
     searchResulsts: []
   }
@@ -11,11 +11,11 @@ class Search extends React.Component {
   render() {
     //more here
     return (
-      <div className="app">Hello</div>
+      <div className="app">Thank you for subscribing</div>
       )
   }
 
 
 }
 
-export default Search;
+export default Confirmation;

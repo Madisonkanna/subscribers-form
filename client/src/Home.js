@@ -45,6 +45,10 @@ class Home extends Component {
           Name:
             <input onChange={this.onInputChange} name="name" />
           </label>
+          <label>
+          Email:
+            <input onChange={this.onInputChange} email="email" />
+          </label>
           <Link to="/confirmation" input type="submit">Subscribe  </Link>
         </form>
         <form onSubmit={this.handleFormChange}>Submit</form>
