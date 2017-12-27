@@ -37,6 +37,8 @@ class Home extends Component {
           <h1 className="App-title">{Content}</h1>
         </header>
 
+        <h1>Subscribe to our newsletter!</h1>
+
 
         <form>
           <label>
