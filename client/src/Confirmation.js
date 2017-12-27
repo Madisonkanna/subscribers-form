@@ -15,7 +15,6 @@ class Confirmation extends React.Component {
       )
   }
 
-
 }
 
 export default Confirmation;
