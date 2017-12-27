@@ -18,6 +18,7 @@ const SubscribersApp = () => {
       <div className="subscribers-app">
         <Route exact path="/" component={Home} />
         <Route exact path="/confirmation" component={Confirmation} />
+        <Route exact path="/list" component={List} />
       </div>
     </BrowserRouter>)
 }
