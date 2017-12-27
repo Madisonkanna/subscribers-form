@@ -12,6 +12,7 @@ class List extends React.Component {
     //more here
     return (
       <div className="app">Subscriptions List</div>
+      <div>Subscriptions list</div>
       )
   }
 
