@@ -53,7 +53,7 @@ class Home extends Component {
             <li key={user.id}>{user.username}</li>
             )}
 
-          <Link to="/confirmation" className="open-search"> Add a book </Link>
+          <Link to="/confirmation" className="open-confirm"> Add a book </Link>
           
       </div>
     );
