@@ -45,7 +45,7 @@ class Home extends Component {
           Name:
             <input onChange={this.onInputChange} name="name" />
           </label>
-          <input type="submit" value="submit" />
+          <Link to="/confirmation" input type="submit">Subscribe  </Link>
         </form>
         <form onSubmit={this.handleFormChange}>Submit</form>
 
@@ -54,7 +54,6 @@ class Home extends Component {
             <li key={user.id}>{user.username}</li>
             )}
 
-          <Link to="/confirmation" className="open-confirm"> Add a subscriber to collection book </Link>
 
       </div>
     );
