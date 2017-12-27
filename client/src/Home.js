@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+class Home extends Component {
   // initialize state to an empty array of subscribers
+  
   state = { users: [] }
 
   //after component mounts
 
   onInputChange(event) {
     console.log(event.target.value);
-    
-    
+
   }
 
+  
   componentDidMount() {
     fetch('/users')
     .then(res => res.json())
@@ -21,12 +22,15 @@ class App extends Component {
 
   }
 
+
   render() {
+    const Content = 'Subscribe'
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Subscribers app</h1>
+          <h1 className="App-title">{Content}</h1>
 
         </header>
 
@@ -48,4 +52,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
