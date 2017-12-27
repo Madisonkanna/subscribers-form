@@ -35,8 +35,6 @@ class Home extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">{Content}</h1>
-
-          
         </header>
 
 
@@ -47,6 +45,7 @@ class Home extends Component {
           </label>
           <input type="submit" value="submit" />
         </form>
+        <form onSubmit={this.handleFormChange}>Submit</form>
 
 
           {this.state.users.map( user => 
@@ -54,7 +53,7 @@ class Home extends Component {
             )}
 
           <Link to="/confirmation" className="open-confirm"> Add a subscriber to collection book </Link>
-          
+
       </div>
     );
   }
