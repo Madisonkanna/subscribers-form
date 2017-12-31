@@ -39,6 +39,8 @@ class Home extends Component {
 
         </header>
         <h1>Subscribe to our newsletter!</h1>
+      
+        {/* only on dev does localhost work */}
         <a href="http://localhost:3001/users">Signup yo</a>
         <Form/>
 
