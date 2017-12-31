@@ -20,15 +20,15 @@ class Home extends Component {
   }
 
   //need to include form validation  
-  componentDidMount() {
-    fetch('/users')
-    .then(res => res.json())
-    .then(users => this.setState( { users }));
+  //componentDidMount() {
+    //fetch('/users')
+    //.then(res => res.json())
+    //.then(users => this.setState( { users }));
 
-  }
+  //}
 
 
-  render() {
+   render() {
     const Content = 'Subscribe'
 
     return (
@@ -39,6 +39,7 @@ class Home extends Component {
 
         </header>
         <h1>Subscribe to our newsletter!</h1>
+        <a href="http://localhost:3001/users">Signup yo</a>
         <Form/>
 
       
