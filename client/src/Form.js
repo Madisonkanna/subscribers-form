@@ -5,18 +5,13 @@ import isEmail from 'validator/lib/isEmail';
 const validator = require('validator');
 
 class Form extends React.Component {
-
-
   state = { email: '', name: '',  }
-
-//        <input value={this.state.term} onChange={(event) => this.setState({ term: event.taret.value })} />;
-
-  //code here
-
   render() {
 
     //more here
     return (
+
+    const email = document.getElementById("mail");
 
       <form className="signup-form">
        <h2>Sign up</h2>
