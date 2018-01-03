@@ -25,16 +25,16 @@ class Form extends React.Component {
          <input type="email" onChange={(event) => this.setState({ email: event.target.value })}
 
           className="form-control"
-           name="email" />
+           name="email" required />
        </div>
 
        <div>
          <label htmlFor="name">Name</label>
          <input type="name" onChange={(event) => this.setState({ name: event.target.value })}
- name="name" />
+ name="name" required />
        </div>
 
-       <button>Click me</button>
+       <button>Submit/button>
     
 
      </form>
