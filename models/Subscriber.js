@@ -7,7 +7,8 @@ const subscriberSchema = new Schema({
   emailAddress: String,
   name: String,
   //this property will let us know if the user has clicked on their confirm email or not
-  subscribed: Boolean
+  subscribed: Boolean,
+  required: [true, 'Must enter email address']
 
 });
 
