@@ -1,14 +1,18 @@
+
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 const index = require('./routes/index');
 const users = require('./routes/users');
-
 const app = express();
+
+mongoose.connect(keys.mongoURI);
+
 //const PORT = process.env.PORT || 3001;
 //app.list(PORT);
 
