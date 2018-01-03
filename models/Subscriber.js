@@ -11,4 +11,4 @@ const subscriberSchema = new Schema({
 
 
 //Create model class and tell mongoose it needs to know that that my new collection should be created 
-mongoose.model('subscribers', userSchema);
+mongoose.model('subscribers', subscriberSchema);
