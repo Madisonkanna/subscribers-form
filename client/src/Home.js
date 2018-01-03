@@ -41,11 +41,10 @@ class Home extends Component {
         <h1>Subscribe to our newsletter!</h1>
       
         {/* only on dev does localhost work */}
-        <a href="http://localhost:3001/users">Signup yo</a>
+        <a href="/users">Signup yo</a>
         <Form/>
 
-      
-
+ 
 
           {this.state.users.map( user => 
             <li key={user.id}>{user.username}</li>
