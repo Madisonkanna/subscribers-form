@@ -11,11 +11,9 @@ class Form extends React.Component {
     //more here
     return (
 
-
       <form className="signup-form">
-       <h2>Sign up</h2>
        <div>
-         <label htmlFor="email">Email address</label>
+         <label className="email-address" htmlFor="email">Email address</label>
          <input type="email" onChange={(event) => this.setState({ email: event.target.value })}
 
           className="form-control"
@@ -23,12 +21,13 @@ class Form extends React.Component {
        </div>
 
        <div>
-         <label htmlFor="name">Name</label>
+         <label className="name" htmlFor="name">Name</label>
          <input type="name" onChange={(event) => this.setState({ name: event.target.value })}
  name="name" required />
        </div>
-
        <button>Submit </button>
+       
+       
      </form>
 
       )
