@@ -11,7 +11,6 @@ class Form extends React.Component {
     //more here
     return (
 
-    const email = document.getElementById("mail");
 
       <form className="signup-form">
        <h2>Sign up</h2>
