@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import isEmail from 'validator/lib/isEmail';
-
-const validator = require('validator');
 
 class Form extends React.Component {
-  state = { email: '', name: '',  }
+  state = { email: '', name: '',   }
+  
   render() {
 
-    //more here
     return (
 
-      <form className="signup-form">
+      <form onSubmit={this.handleSubmit} className="signup-form">
        <div>
          <label className="email-address" htmlFor="email">Email address</label>
          <input type="email" onChange={(event) => this.setState({ email: event.target.value })}
@@ -25,8 +22,7 @@ class Form extends React.Component {
          <input type="name" onChange={(event) => this.setState({ name: event.target.value })}
  name="name" required />
        </div>
-       <button>Submit </button>
-       
+  
        
      </form>
 
