@@ -15,12 +15,15 @@
     "debug": "~2.6.9",
     "ejs": "^2.5.7",
     "express": "~4.15.5",
-    
     "jade": "~1.11.0",
     "mongod": "^2.0.0",
     "mongodb": "^3.0.1",
     "monk": "^4.0.0",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "validator": "^9.2.0"
+  },
+  "devDependencies": {
+    "eslint-config-conversio": "^1.0.4"
   }
 }
