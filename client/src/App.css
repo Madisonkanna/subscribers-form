@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #83bd31;
   height: 150px;
   padding: 20px;
   color: white;
@@ -18,11 +18,34 @@
   font-size: 1.5em;
 }
 
+.email-address {
+  font-size: large;
+}
+
+.name {
+  font-size: large;
+}
+
+.signup-form {
+  display: inline-block;
+  width: 150px;
+  height: 75px;
+  margin: 10px;
+  text-align: left;
+  margin-left: 350px;
+  display: block;
+}
+
+.submit-button {
+  font-size: large;
+}
+
 input:invalid {
-  border: 2px dashed red;
+  border: 1px dashed red;
 }
 
 input:valid {
+  background-color: #83bd31;
   border: 2px solid black;
 }
 
