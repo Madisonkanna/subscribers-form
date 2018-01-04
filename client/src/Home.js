@@ -21,10 +21,9 @@ class Home extends Component {
         <div className="signup">
           <h1>Subscribe to our newsletter!</h1>
           <Form className="signup" />
-      
-          <Link to="/list" input type="submit">List of subscribers  </Link>
         </div>
       </div>
+      
      );
     }
 }
