@@ -22,6 +22,12 @@ class Form extends React.Component {
          <input type="name" onChange={(event) => this.setState({ name: event.target.value })}
  name="name" required />
        </div>
+       <div className="checkbox">
+        <input className="checkbox" 
+          type="checkbox" required />
+          <p>I agree to recieve emails from you</p>
+        </div>
+        <button>Sign up</button>
   
        
      </form>
