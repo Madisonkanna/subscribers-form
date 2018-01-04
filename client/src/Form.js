@@ -1,14 +1,45 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Form extends React.Component {
-  state = { email: '', name: '',   }
+class Form extends React.Component {  
+
+  constructor(props) {
+    super(props);
+    this.state = { email: '', name: '' };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+  
+   handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+
+    fetch('/users', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstParam: 'yourValue',
+        secondParam: 'yourOtherValue',
+        //need to put my real data in
+        //server must send a response back
+      })
+    }) 
+      .then(res => res.json()) 
+      //need a then that decides what happens based on whether the create was succesful or not. if it's succesful, go to another page. if it fails, we get error.
+      .then(users => this.setState ( { users }));
+    
+    
+  } 
   
   render() {
 
     return (
 
-      <form onSubmit={this.handleSubmit} className="signup-form">
+      <form method="post" onSubmit={this.handleSubmit} className="signup-form">
        <div>
          <label className="email-address" htmlFor="email">Email address</label>
          <input type="email" onChange={(event) => this.setState({ email: event.target.value })}
@@ -26,8 +57,7 @@ class Form extends React.Component {
         <input className="checkbox" 
           type="checkbox" required />I agree to recieve emails from you
         </div>
-        <button>Sign up</button>
-  
+        <input value="Sign up" type="submit"/>
        
      </form>
 
