@@ -24,8 +24,7 @@ class Form extends React.Component {
        </div>
        <div className="checkbox">
         <input className="checkbox" 
-          type="checkbox" required />
-          <p>I agree to recieve emails from you</p>
+          type="checkbox" required />I agree to recieve emails from you
         </div>
         <button>Sign up</button>
   
