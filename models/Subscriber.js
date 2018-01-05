@@ -4,13 +4,13 @@ const { Schema } = mongoose;
 
 //described all my subscribers properties(what my subscribers will look like): their name, and their email address. 
 const subscriberSchema = new Schema({
-  emailAddress: {
-    type: String,
-    required: [true, 'Must enter email address']
-  },
+  //emailAddress: {
+   // type: String,
+    //required: [true, 'Must enter email address']
+  //},
   name: String,
   //this property will let us know if the user has clicked on their confirm email or not
-  subscribed: Boolean
+  //subscribed: Boolean
 
 });
 
