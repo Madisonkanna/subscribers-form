@@ -10,11 +10,14 @@ router.get('/', (req, res, next) => {
     ]);
 });
 
-router.post('/', (res, req, next) => {
+router.post('/', (req, res, next) => {
   console.log('Creating user');
+
   //pull the data from the form, in post in the request
   // create an object in the database using that data
   //send a response indiciating if it worked
+  res.json(
+    {id: 1, username: "Madison"});  
 
 })
 

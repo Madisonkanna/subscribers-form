@@ -12,25 +12,21 @@ class Form extends React.Component {
   
   
    handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
 
     fetch('/users', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        firstParam: 'yourValue',
-        secondParam: 'yourOtherValue',
-        //need to put my real data in
-        //server must send a response back
-      })
+      body: JSON.stringify (this.state)
     }) 
       .then(res => res.json()) 
       //need a then that decides what happens based on whether the create was succesful or not. if it's succesful, go to another page. if it fails, we get error.
       .then(users => this.setState ( { users }));
+      //if succesful response, 
+      //use RabbitMQ to send a subscription confirmation email
     
     
   } 
