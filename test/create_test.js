@@ -1,8 +1,11 @@
 const assert = require('assert');
+const mongoose = require('mongoose');
 
 describe('Creating records', () => {
   it('saves a user', () => {
     //test assertion
-    assert(1 + 1 === 2);
+    const joe = new Subscriber({ name: 'Joe', emailAddress: 'joe@joe.com', subscribed: false })
+
+    joe.save();
   });
 })
