@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node ./bin/www",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
     "test": "mocha"
   },
   "dependencies": {
