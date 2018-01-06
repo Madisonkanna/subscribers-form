@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Subscriber = require('../models/subscriber');
 
 
 /* GET users listing. */
@@ -15,9 +16,17 @@ router.post('/', (req, res, next) => {
 
   //pull the data from the form, in post in the request
   // create an object in the database using that data
-  //send a response indiciating if it worked
-  res.json(
-    {id: 1, username: "Madison"});  
+  const subscriber = new Subscriber( req.body )
+
+  subscriber.save(err => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json({message: 'Success!'})
+
+    }
+
+  });
 
 })
 
