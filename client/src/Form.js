@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Confirmation from './Confirmation';
 
 class Form extends React.Component {  
 
@@ -9,7 +10,15 @@ class Form extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+            handleRedirect(res) {
+            if( res.status === 200 ){
+              window.location.href = 'http://localhost:3000/Confirmation';
+            }else {
+              console.log("Didn't handle redirect")
+            }
+
+        }
+
   
    handleSubmit(event) {
     event.preventDefault();
@@ -22,15 +31,25 @@ class Form extends React.Component {
       },
       body: JSON.stringify (this.state)
     }) 
-      .then(res => res.json()) 
+      .then(this.handleRedirect) 
       //need a then that decides what happens based on whether the create was succesful or not. if it's succesful, go to another page. if it fails, we get error.
-      .then(users => this.setState ( { users }));
+
+      //.then(res => res.redirect())
+      //.then(subscribers => this.setState ( { subscribers }));
+      .catch(err => {
+        console.log("Error!");
+        
+      })
+  
+  
       //if succesful response, 
       //use RabbitMQ to send a subscription confirmation email
-    
+      
     
   } 
   
+
+        
   render() {
 
     return (
