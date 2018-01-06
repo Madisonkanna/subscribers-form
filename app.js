@@ -10,7 +10,6 @@ const keys = require('./config/keys');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const app = express();
-require('./models/Subscriber');
 
 mongoose.connect(keys.mongoURI);
 
