@@ -6,12 +6,14 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const mail = require('./utils/mail');
 const keys = require('./config/keys');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const app = express();
 
 mongoose.connect(keys.mongoURI);
+mail.initializeEmail();
 
 //const PORT = process.env.PORT || 3001;
 //app.list(PORT);

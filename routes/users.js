@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Subscriber = require('../models/subscriber');
+const mail = require('../utils/mail');
 
 
 /* GET users listing. */
@@ -22,6 +23,7 @@ router.post('/', (req, res, next) => {
     if (err) {
       res.json(err);
     } else {
+      mail.sendEmail(subscriber.email, 'Confirm your email', 'Confirm your email address now');
       res.json({message: 'Success!'})
 
     }

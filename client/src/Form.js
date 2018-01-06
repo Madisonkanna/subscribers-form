@@ -2,6 +2,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Confirmation from './Confirmation';
 
+//Next steps
+//sent email asynchronously with RabbitMQ
+//Heroku CloudAMQ could be helpful here
+//When they click confirm, 
+//Mailgun
+// UseRedis to save the opt-in flag
+//on subcribe I can SET a key, userID verified? to true
+//set key: https://redis.io/commands/set 
+//Display all users by using the GET key 
+//Redis client for node: https://github.com/luin/ioredis
+//Redis Cloud--RedisLabs has button 
+//Deploy to Heroku
+
+
 class Form extends React.Component {  
 
   constructor(props) {
@@ -10,17 +24,17 @@ class Form extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-            handleRedirect(res) {
-            if( res.status === 200 ){
-              window.location = 'Confirmation';
-            }else {
-              console.log("Didn't handle redirect")
-            }
-
-        }
-
   
-   handleSubmit(event) {
+  handleRedirect(res) {
+    if( res.status === 200 ){
+      window.location = 'Confirmation';
+    } else {
+      console.log("Didn't handle redirect")
+    }
+
+  }
+
+  handleSubmit(event) {
     event.preventDefault();
 
     fetch('/users', {
@@ -41,13 +55,10 @@ class Form extends React.Component {
         
       })
   
-  
       //if succesful response, 
       //use RabbitMQ to send a subscription confirmation email
       
-    
   } 
-  
 
         
   render() {
