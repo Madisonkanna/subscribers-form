@@ -12,7 +12,7 @@ class Form extends React.Component {
   }
             handleRedirect(res) {
             if( res.status === 200 ){
-              window.location.href = 'http://localhost:3000/Confirmation';
+              window.location = 'Confirmation';
             }else {
               console.log("Didn't handle redirect")
             }
