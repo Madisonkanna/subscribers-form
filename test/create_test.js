@@ -1,6 +1,6 @@
 const assert = require('assert');
 const mongoose = require('mongoose');
-const Subscriber = require('../models/subscriber');
+const Subscriber = require('../models/Subscriber');
 
 describe('Creating records', () => {
   it('saves a subscriber', () => {
