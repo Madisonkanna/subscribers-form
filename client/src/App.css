@@ -18,6 +18,10 @@
   font-size: 1.5em;
 }
 
+.header {
+  margin-right: 180px;
+}
+
 .email-address {
   font-size: large;
 }
@@ -27,7 +31,7 @@
 }
 
 .signup-form {
-  display: inline-block;
+  
   width: 150px;
   height: 75px;
   margin: 10px;
