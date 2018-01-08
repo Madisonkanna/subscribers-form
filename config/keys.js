@@ -3,5 +3,6 @@ module.exports = {
   mailgunApiKey: process.env.MAILGUN_API_KEY,
   mailgunDomain: process.env.MAILGUN_DOMAIN,
   fromEmail: process.env.FROM_EMAIL,
-  mongoURI: process.env.MONGODB_URI
+  mongoURI: process.env.MONGODB_URI,
+  redisURI: process.env.REDISCLOUD_URL
 }

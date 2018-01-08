@@ -9,12 +9,12 @@ import Confirmation from './Confirmation';
 //Mailgun
 // UseRedis to save the opt-in flag
 //on subcribe I can SET a key, userID verified? to true
-//set key: https://redis.io/commands/set 
 //Display all users by using the GET key 
-//Redis client for node: https://github.com/luin/ioredis
-//Redis Cloud--RedisLabs has button 
-//Deploy to Heroku
 
+//Question for Stefano: In my mongo schema, is the subscribed flag, is that supposed to be in redis? Rather than in Mongo. Or should Redis just keep track of signups which then could be confirmed.
+
+//myemail+signup1@gmail.com write something different in signup each time
+// Rejected: 'Confirm your email' Sandbox subdomains are for test purposes only. Please add your own domain or add the address to authorized recipients in Account Settings.:
 
 class Form extends React.Component {  
 

@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Subscriber = require('../models/Subscriber');
 const mail = require('../utils/mail');
+const Redis = require('ioredis');
+const uuidv4 = require('uuid/v4');
+const keys = require('../config/keys');
+
+const redis = new Redis(keys.redisURI);
 
 // From senior dev: we save the flag to redis. so on subscribe you should SET a key (for example 
 //   "${userId}:verified") to true and when displaying all the subscribers you 
@@ -29,10 +34,12 @@ router.post('/', (req, res, next) => {
   // create an object in the database using that data
   const subscriber = new Subscriber( req.body )
 
-  subscriber.save(err => {
+  subscriber.save((err, subscriber) => {
     if (err) {
       res.json(err);
     } else {
+      const signupToken = uuidv4();
+      redis.set(signupToken, subscriber.id);
       mail.sendEmail(subscriber.email, 'Confirm your email', 'Confirm your email address now');
       res.json({message: 'Success!'})
 
