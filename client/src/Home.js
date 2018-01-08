@@ -19,9 +19,10 @@ class Home extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <div className="signup">
-          <h1>Subscribe to our newsletter!</h1>
+          <h1 className="header">Subscribe to our newsletter!</h1>
           <Form className="signup" />
         </div>
+        <Link to="/list">List of subscribers</Link>
       </div>
       
      );

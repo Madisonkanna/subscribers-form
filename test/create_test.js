@@ -7,6 +7,5 @@ describe('Creating records', () => {
     //test assertion
     const joe = new Subscriber({ name: 'Joe', emailAddress: 'joe@joe.com', subscribed: false })
 
-    joe.save();
   });
 })

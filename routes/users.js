@@ -3,13 +3,22 @@ const router = express.Router();
 const Subscriber = require('../models/subscriber');
 const mail = require('../utils/mail');
 
+// From senior dev: we save the flag to redis. so on subscribe you should SET a key (for example 
+//   "${userId}:verified") to true and when displaying all the subscribers you 
+// should GET the same key to see if it exists.
+//You can use ioredis as an npm module
+
+//get all users showing
+//above answer!
+
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  res.json([
-    {id: 1, username: "Madison"},
-    {id: 2, username: "Madison two"}
-    ]);
+//get users from database!
+
+  db.collection("subcribers").find({}).toArray();
+  res.json({message: 'Success!'})
+
 });
 
 router.post('/', (req, res, next) => {
