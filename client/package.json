@@ -1,8 +1,6 @@
 {
   "name": "client",
-  "proxy": {
-    "/users": {
-      "target": "http://localhost:3001"
+  "proxy": "http://localhost:3001"
     }
   },
   "version": "0.1.0",
