@@ -19,33 +19,28 @@ const redis = new Redis(keys.redisURI);
 
 
 /* GET users listing. */
-router.get('/', (req, res, next) => {
-//get users from database!
+router.get('/', (req, res, next) => {  
+  Subscriber.find().then((subscribers) => res.json({ users: subscribers }))
+  .catch((err) => res.json({ err }))
 
-  db.collection("subcribers").find({}).toArray();
-  res.json({message: 'Success!'})
 
 });
 
+
 router.post('/', (req, res, next) => {
   console.log('Creating user');
-
   //pull the data from the form, in post in the request
   // create an object in the database using that data
   const subscriber = new Subscriber( req.body )
 
-  subscriber.save((err, subscriber) => {
-    if (err) {
-      res.json(err);
-    } else {
-      const signupToken = uuidv4();
-      redis.set(signupToken, subscriber.id);
-      mail.sendEmail(subscriber.email, 'Confirm your email', 'Confirm your email address now');
-      res.json({message: 'Success!'})
+  subscriber.save().then((subscriber) => {
+    const signupToken = uuidv4();
+    redis.set(signupToken, subscriber.id);
+    mail.sendEmail(subscriber.email, 'Confirm your email', 'Confirm your email address now');
+    res.json({user: subscriber})
+  })
+  .catch((err) => res.json({ err }))
 
-    }
-
-  });
 
 })
 

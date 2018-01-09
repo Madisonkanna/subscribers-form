@@ -7,7 +7,7 @@ class Confirmation extends React.Component {
   render() {
     //more here
     return (
-      <div className="app">You've been confirmed!</div>
+      <div className="app">You've signed up! To finish your confirmation, please check your email and click Confirm. Then you'll officialyl be a subscriber!</div>
       )
   }
 
