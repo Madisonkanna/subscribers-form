@@ -11,17 +11,12 @@ import Confirmation from './Confirmation';
 //on subcribe I can SET a key, userID verified? to true
 //Display all users by using the GET key 
 
-//myemail+signup1@gmail.com write something different in signup each time
-// Rejected: 'Confirm your email' Sandbox subdomains are for test purposes only. Please add your own domain or add the address to authorized recipients in Account Settings.:
-
 //To do:
-//Go clean up my page link 'list all subscribers'
-//Display all my subscribers on my list page
-//Create signup page that says 'thanks for signing up, please check your email'
 //Need confirmation page that someone goes to based on link in their email. That page looks up the key in redis and confirms that person in Mongo.
 //In body of email I need to include a link that goes to confirmation page, and has link: 
 //http://myserver.com/subscribe/confirm?key=<uuid>
 //make confirm route on the server to process and pass on. Just need a route that sends you to the frontend. It can be automatic redirect
+//Server side validation: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
 
 class Form extends React.Component {  
 

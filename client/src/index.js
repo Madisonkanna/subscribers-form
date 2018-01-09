@@ -19,6 +19,8 @@ const SubscribersApp = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path="/list" component={List} />
+        <Route exact path="/finalconfirmation" component={FinalConfirmation} />
+        <Route exact path="/confirmationfailure" component={ConfirmationFailure} />
       </div>
     </BrowserRouter>)
 }

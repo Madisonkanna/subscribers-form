@@ -8,9 +8,6 @@ const keys = require('../config/keys');
 
 const redis = new Redis(keys.redisURI);
 
-// From senior dev: we save the flag to redis. so on subscribe you should SET a key (for example 
-//   "${userId}:verified") to true and when displaying all the subscribers you 
-// should GET the same key to see if it exists.
 //You can use ioredis as an npm module
 //When a user saves to Database, I can generate a new token associated to that user and use that in the confirm url
 
@@ -36,13 +33,32 @@ router.post('/', (req, res, next) => {
   subscriber.save().then((subscriber) => {
     const signupToken = uuidv4();
     redis.set(signupToken, subscriber.id);
-    mail.sendEmail(subscriber.email, 'Confirm your email', 'Confirm your email address now');
+
+    const host = req.headers.host;
+    const emailMessage = 'Confirm your email address now ' + req.protocol + '://' + host + '/users/confirm?token=' + signupToken;
+    //protocol://host/path?queryparam1=value1
+    mail.sendEmail(subscriber.email, 'Confirm your email', emailMessage);
     res.json({user: subscriber})
   })
   .catch((err) => res.json({ err }))
 
+})
+
+router.get('/confirm', (req, res, next) => {
+  const signupToken = req.query.token;
+  redis.get(signupToken).then(function (result) {
+    console.log(result);
+
+    const key = result + ':verified';
+    redis.set(key, true);
+    res.redirect('/finalconfirmation')
+  }) 
+  .catch(err => {
+    res.redirect('/confirmationfailure')
+  })
 
 })
+
 
 //Post request for my user to post data
 
