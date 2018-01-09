@@ -6,6 +6,8 @@ import Confirmation from './Confirmation';
 import List from './List';
 import { BrowserRouter, Route } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
+import FinalConfirmation from './FinalConfirmation';
+import ConfirmationFailure from './ConfirmationFailure';
 
 
 // Add my subscribers app main component, with routes that hold pages to my home page and confirmation page.
