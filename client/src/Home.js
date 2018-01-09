@@ -20,9 +20,9 @@ class Home extends Component {
         </header>
         <div className="signup">
           <h1 className="header">Subscribe to our newsletter!</h1>
+          <Link to="/list">List of subscribers</Link>
           <Form className="signup" />
         </div>
-        <Link to="/list">List of subscribers</Link>
       </div>
       
      );
