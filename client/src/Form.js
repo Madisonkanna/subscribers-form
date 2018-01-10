@@ -5,18 +5,13 @@ import Confirmation from './Confirmation';
 //Next steps
 //sent email asynchronously with RabbitMQ
 //Heroku CloudAMQ could be helpful here
-//When they click confirm, 
-//Mailgun
-// UseRedis to save the opt-in flag
 //on subcribe I can SET a key, userID verified? to true
 //Display all users by using the GET key 
 
 //To do:
-//Need confirmation page that someone goes to based on link in their email. That page looks up the key in redis and confirms that person in Mongo.
 //In body of email I need to include a link that goes to confirmation page, and has link: 
 //http://myserver.com/subscribe/confirm?key=<uuid>
 //make confirm route on the server to process and pass on. Just need a route that sends you to the frontend. It can be automatic redirect
-//Server side validation: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
 
 class Form extends React.Component {  
 
@@ -52,9 +47,7 @@ class Form extends React.Component {
         console.log("Error!");
         
       })
-  
   } 
-
         
   render() {
 
