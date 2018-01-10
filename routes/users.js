@@ -29,6 +29,7 @@ router.post('/', (req, res, next) => {
   //pull the data from the form, in post in the request
   // create an object in the database using that data
   const subscriber = new Subscriber( req.body )
+  subscriber.subscribedAt = new Date();
 
   subscriber.save().then((subscriber) => {
     const signupToken = uuidv4();

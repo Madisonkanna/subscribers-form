@@ -30,6 +30,9 @@
   font-size: large;
 }
 
+.subscriber-list {
+  border: 2px solid black;
+}
 .signup-form {
   
   width: 150px;

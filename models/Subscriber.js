@@ -9,9 +9,10 @@ const subscriberSchema = new Schema({
     required: [true, 'Must enter email address']
   },
   name: String,
-  //this property will let us know if the user has clicked on their confirm email or not
-  subscribed: Boolean
-  //add default false to subscribed
+  subscribedAt: { 
+    type: Date,
+    required: true
+  }
 });
 //Create model class and tell mongoose it needs to know that that my new collection should be created 
 

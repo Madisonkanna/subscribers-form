@@ -48,18 +48,11 @@ class Form extends React.Component {
       body: JSON.stringify (this.state)
     }) 
       .then(this.handleRedirect) 
-      //need a then that decides what happens based on whether the create was succesful or not. if it's succesful, go to another page. if it fails, we get error.
-
-      //.then(res => res.redirect())
-      //.then(subscribers => this.setState ( { subscribers }));
       .catch(err => {
         console.log("Error!");
         
       })
   
-      //if succesful response, 
-      //use RabbitMQ to send a subscription confirmation email
-      
   } 
 
         

@@ -30,17 +30,19 @@ class List extends React.Component {
         ref={(userInput) => this.input = userInput}
         placeholder="Search by email" />
 
-        <table>
+        <table className="subscriber-list">
           <tr>
-            <th>Email</th>
-            <th>Name</th>
+            <th className="subscriber-list">Email</th>
+            <th className="subscriber-list">Name</th>
+            <th className="subscriber-list">Subscribed at</th>
           </tr>
           <tbody>
           {this.state.users.map(user => {
             return (
               <tr key={user._id}>
-                <td>{user.email}</td>
-                <td>{user.name}</td>
+                <td className="subscriber-list">{user.email}</td>
+                <td className="subscriber-list">{user.name}</td>
+                <td className="subscriber-list">{user.subscribedAt}</td>
               </tr>    
             )
           })}
