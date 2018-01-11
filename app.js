@@ -13,8 +13,12 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const app = express();
 
+
 mongoose.connect(keys.mongoURI);
 mail.initializeEmail();
+
+mail.connectAMQP();
+mail.processEmail();
 
 //const PORT = process.env.PORT || 3001;
 //app.list(PORT);

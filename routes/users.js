@@ -26,15 +26,20 @@ router.post('/', (req, res, next) => {
   subscriber.subscribedAt = new Date();
 
   subscriber.save().then((subscriber) => {
+    console.log("Inside of then!");
     const signupToken = uuidv4();
     redis.set(signupToken, subscriber.id);
 
     const host = req.headers.host;
     const emailMessage = 'Confirm your email address now ' + req.protocol + '://' + host + '/users/confirm?token=' + signupToken;
     //protocol://host/path?queryparam1=value1
-    mail.sendEmail(subscriber.email, 'Confirm your email', emailMessage);
-    res.json({user: subscriber})
+    mail.queueEmail(subscriber.email, 'Confirm your email', emailMessage).then((info => {
+      res.json({user: subscriber})
+    }))
+    //error on email sending
+    .catch((err) => res.json({ err }))
   })
+    //error on subscribe save
   .catch((err) => res.json({ err }))
 
 })
