@@ -8,12 +8,6 @@ const keys = require('../config/keys');
 
 const redis = new Redis(keys.redisURI);
 
-//You can use ioredis as an npm module
-//When a user saves to Database, I can generate a new token associated to that user and use that in the confirm url
-
-//get all users showing
-//above answer!
-
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {  
@@ -47,7 +41,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/confirm', (req, res, next) => {
   const signupToken = req.query.token;
-  redis.get(signupToken).then(function (result) {
+  redis.get(signupToken).then( (result) => {
     console.log(result);
 
     const key = result + ':verified';
@@ -61,6 +55,5 @@ router.get('/confirm', (req, res, next) => {
 })
 
 
-//Post request for my user to post data
 
 module.exports = router;

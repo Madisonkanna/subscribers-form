@@ -6,7 +6,7 @@ class FinalConfirmation extends React.Component {
   render() {
     //more here
     return (
-      <div className="app">You are now subscrbed to our newsletter!</div>
+      <div className="app">You are now subscibed to our newsletter!</div>
       )
   }
 
