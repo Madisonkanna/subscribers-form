@@ -79,25 +79,28 @@ class List extends React.Component {
         onKeyUp={this.handleSearch.bind(this)}
         ref={(userInput) => this.input = userInput}
         placeholder="Search by email" />
-
         <table className="subscriber-list">
           <tr>
-            <th onClick={this.sortData.bind(this, 'email')} className="subscriber-list">Email
+            <th onClick={this.sortData.bind(this, 'email')} className="subscriber-list">
+            Email
+            {/* JSX + Classname below: Here I'm saying that if this.state.reversed is true, I will return the down arrow, which signifies that it's in descending order. If it's not true (if it's in ascending order, then I return the up arrow. I'm using the ternary operator to make it look better)
+            */}  
             {this.state.clickedColumn == 'email' && 
-              <span //I said that if this.state.reversed is true, I will return the down arrow, which signifies that it's in descending order. If it's not true (if it's in ascending order, then I return the up arrow. I'm using the ternary operator to make it look better)
+              <span 
                 className={this.state.reversed ? "glyphicon glyphicon-arrow-down" : "glyphicon glyphicon-arrow-up"}></span> 
+                
             }
             </th>
             
             <th onClick={this.sortData.bind(this, 'name')} className="subscriber-list">Name 
             {this.state.clickedColumn == 'name' && 
-              <span className="glyphicon glyphicon-arrow-down"></span> 
+              <span className={this.state.reversed ? "glyphicon glyphicon-arrow-down" : "glyphicon glyphicon-arrow-up"}></span> 
             }
             </th>
             <th onClick={this.sortData.bind(this, 'subscribedAt')} className="subscriber-list">
             Subscribed at 
             {this.state.clickedColumn == 'subscribedAt' && 
-              <span className="glyphicon glyphicon-arrow-down"></span> 
+              <span className={this.state.reversed ? "glyphicon glyphicon-arrow-down" : "glyphicon glyphicon-arrow-up"}></span> 
             }
             </th>
           </tr>
