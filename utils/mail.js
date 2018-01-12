@@ -66,7 +66,6 @@ const processEmail = () => {
           sendEmail(newMessage.to, newMessage.subject, newMessage.text).then((emailInfo) => {
               ch.ack(msg);
             });
-          }
         } 
       });
     });

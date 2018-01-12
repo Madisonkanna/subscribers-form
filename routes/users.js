@@ -9,9 +9,40 @@ const keys = require('../config/keys');
 const redis = new Redis(keys.redisURI);
 
 
+// Stefano comments: what you can do is to cycle all the subscribers and get their confirmation value from redis before sending everything to the browser
+// and yes, 1 redis get per subscriber
+// I'd say `Promise.all` is the key
+// you an use `await` for `redis.get`
+
 /* GET users listing. */
+
+//make a function to get my keys and not write them over
+
+const makeVerifiedKey = (subscriberId) => {
+  const key = subscriberId + ':verified';
+  return key;
+
+}
+
 router.get('/', (req, res, next) => {  
-  Subscriber.find().then((subscribers) => res.json({ users: subscribers }))
+  Subscriber.find().then((subscribers) => {
+    //my redis promises
+        const redisPromises = [];
+
+        subscribers.map(subscriber => {
+          const key = makeVerifiedKey(subscriber.id);
+          //returns a promise
+          const returnPromise = redis.get(key); 
+          redisPromises.push(returnPromise);
+        })
+
+        Promise.all(redisPromises).then(function(values) {
+          console.log(values);
+          res.json({ users: subscribers })
+        });
+  }
+
+  )
   .catch((err) => res.json({ err }))
 
 
@@ -46,10 +77,10 @@ router.post('/', (req, res, next) => {
 
 router.get('/confirm', (req, res, next) => {
   const signupToken = req.query.token;
-  redis.get(signupToken).then( (result) => {
-    console.log(result);
+  redis.get(signupToken).then( (subscriberId) => {
+    console.log(subscriberId);
 
-    const key = result + ':verified';
+    const key = makeVerifiedKey(subscriberId);
     redis.set(key, true);
     res.redirect('/finalconfirmation')
   }) 
