@@ -19,6 +19,7 @@ const redis = new Redis(keys.redisURI);
 //make a function to get my keys and not write them over
 
 const makeVerifiedKey = (subscriberId) => {
+  //the value of key is verified now
   const key = subscriberId + ':verified';
   return key;
 
@@ -27,19 +28,30 @@ const makeVerifiedKey = (subscriberId) => {
 router.get('/', (req, res, next) => {  
   Subscriber.find().then((subscribers) => {
     //my redis promises
-        const redisPromises = [];
-
-        subscribers.map(subscriber => {
+    //normally redis.get returns a promise. I'm attaching each verified status to its associated subscriber as it goes around.
+        //be in an async context to use await
+        const promises = subscribers.map(async subscriber => {
+          //by default map gives me a list which is the result of each callback function. When I made it async, it returns a promise now instead of a result. 
           const key = makeVerifiedKey(subscriber.id);
           //returns a promise
-          const returnPromise = redis.get(key); 
-          redisPromises.push(returnPromise);
+          //await is waiting for the promise to be fulfilled and then it will return a value
+          //get our value and attach it to our ke
+          //waiting until the below code happens before we proceed:
+          const subscriberVerified = await redis.get(key); 
+          //make my subscriber into a plain object b/c mongoose is usually immutable
+          subscriber = subscriber.toObject();
+          //give object subscriber the property verified
+          subscriber.verified = subscriberVerified;
+          return subscriber;
         })
+        //wait for all the promises to come back before this promise resolves
+        Promise.all(promises).then((values) => {
 
-        Promise.all(redisPromises).then(function(values) {
-          console.log(values);
-          res.json({ users: subscribers })
-        });
+                  //got all resolved results of all my promises aka returns all my users
+                   res.json({ users: values })
+                });
+
+      
   }
 
   )
@@ -77,6 +89,8 @@ router.post('/', (req, res, next) => {
 
 router.get('/confirm', (req, res, next) => {
   const signupToken = req.query.token;
+  //looking up subscriber id that corresponds to that token
+  //key is signup token, value is subscriber id
   redis.get(signupToken).then( (subscriberId) => {
     console.log(subscriberId);
 

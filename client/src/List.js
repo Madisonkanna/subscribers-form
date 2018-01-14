@@ -103,6 +103,11 @@ class List extends React.Component {
               <span className={this.state.reversed ? "glyphicon glyphicon-arrow-down" : "glyphicon glyphicon-arrow-up"}></span> 
             }
             </th>
+            <th onClick={this.sortData.bind(this, 'verified')} className="subscriber-list">Verified 
+            {this.state.clickedColumn == 'verified' && 
+              <span className={this.state.reversed ? "glyphicon glyphicon-arrow-down" : "glyphicon glyphicon-arrow-up"}></span> 
+            }
+            </th>
           </tr>
           <tbody>
           {this.filteredUsers().map(user => {
@@ -111,6 +116,7 @@ class List extends React.Component {
                 <td className="subscriber-list">{user.email}</td>
                 <td className="subscriber-list">{user.name}</td>
                 <td className="subscriber-list">{user.subscribedAt}</td>
+                <td className="subscriber-list">{user.verified}</td>
               </tr>    
             )
           })}

@@ -27,6 +27,7 @@ const initializeEmail = () => {
 
 const queueEmail = (to, subject, text) => {
   console.log("queue Email was called");
+  //made it a promise so I can know when the email is queued. when my promise resolves, I know email is sent
   const deferred = Q.defer();
 
   open.then(function(conn) {
