@@ -116,7 +116,7 @@ class List extends React.Component {
                 <td className="subscriber-list">{user.email}</td>
                 <td className="subscriber-list">{user.name}</td>
                 <td className="subscriber-list">{user.subscribedAt}</td>
-                <td className="subscriber-list">{user.verified}</td>
+                <td className="subscriber-list">{user.verified || 'false'}</td>
               </tr>    
             )
           })}
