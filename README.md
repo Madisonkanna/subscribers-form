@@ -1,7 +1,9 @@
 # subscribers-form
 
- To star the Express backend, run yarn start.
+Instructions to run the app:
 
- For React frontend, cd into the client folder and run yarn start.
- 
- For tests, run yarn run test. 
+1) Clone into the app
+
+2) Install dependencies with yarn
+
+3) In your CL, cd into the app and then run yarn start and open http://localhost:3001/
