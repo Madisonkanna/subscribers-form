@@ -8,7 +8,10 @@ const subscriberSchema = new Schema({
     type: String,
     required: [true, 'Must enter email address']
   },
-  name: String,
+  name: {
+    type: String,
+    required: [true, 'Name is required']
+  },
   subscribedAt: { 
     type: Date,
     required: true
