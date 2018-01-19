@@ -75,7 +75,7 @@ router.post('/', (req, res) => {
     const emailMessage = 'Confirm your email address now ' + req.protocol + '://' + host + '/users/confirm?token=' + signupToken;
     // protocol://host/path?queryparam1=value1
     mail.queueEmail(subscriber.email, 'Confirm your email', emailMessage).then((info => {
-      res.json({ user: subscriber });
+      res.json({ user: subscriber });   
     }))
     // error on email sending
       .catch(err => res.json({ err }));

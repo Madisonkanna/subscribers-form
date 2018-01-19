@@ -1,7 +1,5 @@
-const assert = require('assert');
-const mongoose = require('mongoose');
 const Subscriber = require('../models/Subscriber');
-// test for raeding files / db query
+// test for reading files / db query
 describe('Reading users out of the database', () => {
   // declare my user outside of the beforeEach
   let joe;
@@ -16,8 +14,6 @@ describe('Reading users out of the database', () => {
     // joe will now be an instance of a user
     // add query to find users with his name
     Subscriber.find({ name: 'Joe' })
-      .then(subscribers => {
-        done();
-      });
+      .then(() => done());
   });
 });

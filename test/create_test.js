@@ -1,5 +1,4 @@
 const assert = require('assert');
-const mongoose = require('mongoose');
 const Subscriber = require('../models/Subscriber');
 
 describe('Creating records', () => {
@@ -13,8 +12,8 @@ describe('Creating records', () => {
         // succesfully saved in DB. !joe.isNew means Joe is saved in Mongo.
         assert(!joe.isNew);
         // Add our done callback to let Mocha know that it is only
-        // after our then statement executes and our assertion is made, that Mocha can go on 
-        //to the next test
+        // after our then statement executes and our assertion is made, that Mocha can go on
+        // to the next test
         done();
       });
   });
