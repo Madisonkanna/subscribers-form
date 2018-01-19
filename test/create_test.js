@@ -9,9 +9,12 @@ describe('Creating records', () => {
     // when joe is saved, a promise comes back to us
     joe.save()
       .then(() => {
-        // built in flag: it's false when the new user is succesfully saved in DB. !joe.isNew means Joe is saved in Mongo.
+        // built in flag: it's false when the new user is
+        // succesfully saved in DB. !joe.isNew means Joe is saved in Mongo.
         assert(!joe.isNew);
-        // Add our done callback to let Mocha know that it is only after our then statement executes and our assertion is made, that Mocha can go on to the next test
+        // Add our done callback to let Mocha know that it is only
+        // after our then statement executes and our assertion is made, that Mocha can go on 
+        //to the next test
         done();
       });
   });

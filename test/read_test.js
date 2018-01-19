@@ -17,7 +17,6 @@ describe('Reading users out of the database', () => {
     // add query to find users with his name
     Subscriber.find({ name: 'Joe' })
       .then(subscribers => {
-        console.log(subscribers);
         done();
       });
   });

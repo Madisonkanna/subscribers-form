@@ -10,10 +10,10 @@ const keys = require('../config/keys');
 const redis = new Redis(keys.redisURI);
 
 
-// Stefano comments: what you can do is to cycle all 
-//the subscribers and get their confirmation value from redis before sending everything
+// Stefano comments: what you can do is to cycle all
+// the subscribers and get their confirmation value from redis before sending everything
 // to the browser
-//1 redis get per subscriber
+// 1 redis get per subscriber
 // I'd say `Promise.all` is the key
 // you an use `await` for `redis.get`
 
@@ -27,13 +27,15 @@ const makeVerifiedKey = subscriberId => {
   return key;
 };
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   Subscriber.find().then(subscribers => {
     // my redis promises
-    // normally redis.get returns a promise. I'm attaching each verified status to its associated subscriber as it goes around.
+    // normally redis.get returns a promise. I'm attaching each verified status to its
+    // associated subscriber as it goes around.
     // be in an async context to use await
     const promises = subscribers.map(async subscriber => {
-      // by default map gives me a list which is the result of each callback function. When I made it async, it returns a promise now instead of a result.
+      // by default map gives me a list which is the result of each callback function. When I made
+      // it async, it returns a promise now instead of a result.
       const key = makeVerifiedKey(subscriber.id);
       // returns a promise
       // await is waiting for the promise to be fulfilled and then it will return a value
@@ -58,15 +60,14 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.post('/', (req, res, next) => {
-  console.log('Creating user');
+router.post('/', (req, res) => {
+  // console.log('Creating user');
   // pull the data from the form, in post in the request
   // create an object in the database using that data
   const subscriber = new Subscriber(req.body);
   subscriber.subscribedAt = new Date();
 
   subscriber.save().then(subscriber => {
-    console.log('Inside of then!');
     const signupToken = uuidv4();
     redis.set(signupToken, subscriber.id);
 
@@ -83,13 +84,11 @@ router.post('/', (req, res, next) => {
     .catch(err => res.json({ err }));
 });
 
-router.get('/confirm', (req, res, next) => {
+router.get('/confirm', (req, res) => {
   const signupToken = req.query.token;
   // looking up subscriber id that corresponds to that token
   // key is signup token, value is subscriber id
   redis.get(signupToken).then(subscriberId => {
-    console.log(subscriberId);
-
     const key = makeVerifiedKey(subscriberId);
     redis.set(key, true);
     res.redirect('/finalconfirmation');
