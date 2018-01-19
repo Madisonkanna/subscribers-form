@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "globals": {
+    "browser": true
+  },
+  "plugins": [
+    "mocha"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "max-len": "warn",
+    "mocha/no-exclusive-tests": "error"
+  }
+}
